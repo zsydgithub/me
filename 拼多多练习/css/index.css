@@ -1,0 +1,212 @@
+
+.header{
+    height: 0.48rem;
+    display: flex;
+    padding: 0.2rem;
+
+}
+.search{
+    width:6.66rem;
+    height: 0.5rem;
+    
+    border-radius: 0.25rem;
+    border:none;
+    outline:none;
+    text-indent: 0.61rem;
+    background:#EEEEEE url(../images/search.png) 0.2rem 0.1rem no-repeat;
+    background-size:  0.3rem 0.3rem;
+
+}
+.message{
+    width: 0.28rem;
+    height: 0.3rem;
+    margin: 0.1rem 0.2rem;
+
+}
+.photo2{
+    position: relative;
+    display: block;
+}
+.photo{
+    width:7.5rem;
+}
+.ellipse{
+    position: absolute;
+    left:0;
+    top:0;
+    width: 1rem;
+    height: 0.4rem;
+    margin:0.3rem 6.2rem 3.2rem 0.3rem;
+}
+
+.menu{
+    display: flex;
+    padding: 0.2rem 0.45rem;
+    justify-content: space-between;
+}
+.menu li{
+    width: 1rem;
+    font-size: 0.2rem;
+    text-align: center;
+}
+.menu li img{
+    width:0.8rem;
+    height: 0.8rem;
+}
+.advantage{
+    width: 7.1rem;
+    height: 1.4rem;
+    margin:0 0.2rem;
+    display:block;
+}
+
+.love{
+    padding: 0 0.2rem;
+}
+.love-title{
+    display:flex;
+}
+.love-photo1{
+    width: 0.5rem;
+    height: 0.5rem;
+    margin:0.25rem 0;
+}
+.love-txt h1{
+    font-size:0.28rem;
+    color:#333333FF;
+    
+    margin-top:0.19rem;
+    
+    
+    
+}
+.love-txt p{
+    margin-top: 0.02rem;
+    color:#999999FF;
+    font-size:0.18rem;
+}
+.love-txt{
+    
+    flex:1;
+    margin-left: 0.19rem;
+    
+}
+.love-photo{
+    width: 0.14rem;
+    height: 0.24rem;
+    margin: 0.38rem 0.2rem; 
+}
+.love-content{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.love-content img{
+    width: 2.3rem;
+    height: 2.3rem;
+    display: block;
+    
+}
+.love-content p{
+    font-size:0.24rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: 0.19rem;
+    
+    
+
+}
+.love-price{
+    font-size:0.24rem;
+    color:#EF1C00FF;
+    
+}
+.like{
+    padding: 0 0.2rem; 
+    margin-bottom:1.12rem;
+}
+.like-title{
+    display: flex;
+}
+.like-photo1{
+    width: 0.5rem;
+    height: 0.5rem;
+    margin:0.25rem 0;
+
+}
+.like-txt{
+    flex:1;
+    margin-left: 0.19rem;
+    
+}
+.like-txt h2{
+    font-size:0.28rem;
+    color: #333333FF;
+    margin-top: 0.19rem;
+}
+.like-txt p{
+    font-size:0.18rem;
+    color: #999999FF;
+    margin-top: 0.02rem;
+}
+.like-photo{
+    width: 0.14rem;
+    height: 0.24rem;
+    margin: 0.38rem 0.2rem; 
+}
+.like-content{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap:wrap;
+}
+.like-content img{
+    width: 3.5rem;
+    height: 3.5rem;
+    display: block;
+}
+.like-content p{
+    font-size: 0.24rem;
+    color: #333333FF;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.like-00{
+    display: flex;
+}
+.like-price{
+    font-size:0.24rem;
+    color:#EF1C00FF;
+}
+.like-character{
+    font-size:0.2rem;
+    color: #999999FF;
+    margin-left: 2.1rem;
+}
+.icon123{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.13rem 0.4rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #FFFFFFFF;
+}
+.icon123 p{
+    font-size:0.2rem;
+    color:#999999FF;
+    margin-top: 0.1rem;
+    
+}
+.icon123 img{
+    width: 0.4rem;
+    height: 0.4rem;
+    margin-top: 0.14rem;
+    display: block;
+    
+}
+.icon13 img{
+    margin-left:0.1rem;
+}
