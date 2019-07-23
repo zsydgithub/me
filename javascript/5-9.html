@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str="";
+        var sum=0;
+        var win=0;
+    function play(){
+        str="";
+        var x=Math.floor(Math.random()*9+1);
+        var y=Math.floor(Math.random()*9+1);
+        var z=Math.floor(Math.random()*9+1);
+        str +=x;
+        str +=y;
+        str +=z + "\n";
+        if(x==8 || y==8 || z==8){
+            str +="赢" + "\n";
+            win++;
+        }else{
+            str +="输" + "\n";
+        }
+        sum++;
+        str += (win/sum*100)+"%";
+
+    }
+    do{
+        play();
+    }while(confirm(str));
+    
+    
+    </script>
+</body>
+</html>
