@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    ul{
+            list-style: none;
+        }
+        #div1{
+            margin:100px;
+        }
+        #ul1{
+            overflow: hidden;
+        }
+        #ul1 li{
+            float:left;
+            width: 50px;
+            height: 50px;
+            background: #F1F1F1;
+            border: 1px solid #898989;
+            border-bottom: none;
+            line-height: 50px;
+            text-align: center;
+            margin-right:20px;
+            
+        }
+        #ul1 li.game{
+            background: #6D84B4;
+            color:#fff;
+        }
+        #div2{
+            border:1px solid #898989;
+            width: 500px;
+            height: 200px;
+        }
+        #div2 div{
+            display: none;
+        }
+        #div2 .div3{
+            display: block;
+        }
+        
+    
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <ul id="ul1">
+            <li class="game">游戏</li>
+            <li class="gym">体育</li>
+            <li class="music">音乐</li>
+        </ul>
+        <div id="div2">
+            <div class="div3">游戏</div>
+            <div >体育</div>
+            <div >音乐</div>
+        </div>
+    </div>
+    <script>
+    var oUl=document.getElementById("ul1");
+    var aLi = oUl.getElementsByTagName("li");
+    var aDiv1=document.getElementById("div2");
+    var aDiv2=aDiv1.getElementsByTagName("div");
+        for (var i=0;i<aLi.length;i++){
+            aLi[i].index=i;
+            aLi[i].onclick=function(){
+                for(var j=0;j<aLi.length;j++){
+                    aLi[j].className="";
+                    aDiv2[j].className="";
+                }
+                this.className="game";
+                
+                aDiv2[this.index].className="div3";
+            }
+        }
+    
+    </script>
+    
+
+
+</body>
+</html>

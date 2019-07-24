@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+            
+         }
+         #div1{
+             margin:200px 500px;
+             position: relative;
+         }
+         #ul1{
+             overflow: hidden;
+             width: 140px;
+             position: absolute;
+             left:390px;
+             top:260px;
+         }
+        
+         #ul1 li{
+             float: left;
+             width: 20px;
+            height: 20px;
+            background: #F1F1F1(0,0,0,0.5);
+            border: 1px solid #898989;
+            line-height: 20px;
+            text-align: center;
+            margin-right:5px;
+            color: #F1F1F1;
+            border-radius: 5px;
+            cursor: pointer;
+            
+         }
+         #ul2{
+             overflow: hidden;
+             width: 30px;
+             position: absolute;
+             width: 80px;
+             top:260px;
+             left: 20px;
+         }
+         #ul2 li{
+             float: left;
+             width: 20px;
+            height: 20px;
+            background: #F1F1F1(0,0,0,0.5);
+            border: 1px solid #898989;
+            line-height: 20px;
+            text-align: center;
+            margin-right:5px;
+            color: #F1F1F1;
+            border-radius: 5px;
+            cursor: pointer;
+            
+         }
+         #div2 img{
+             width: 550px;
+             height: 300px;
+         }
+         #ul1 .li1{
+             background: red;
+             color: #ffffff;
+         }
+         
+         #div2 div{
+             display: none;
+         }
+         #div2 .div3{
+             display: block;
+         }
+
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="div4">
+                <ul id="ul1">
+                        <li class="li1">1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                </ul>
+                <ul id="ul2">
+                    <li id="prev">&lt;</li>
+                    <li id="next">&gt;</li>
+                </ul>
+        </div>
+            
+            <div id="div2">
+                <div class="div3">
+                    <img src="images/images1.jpg">
+                </div>
+                <div>
+                    <img src="images/images2.jpg">
+                </div>
+                <div>
+                    <img src="images/images3.jpg">
+                </div>
+                <div>
+                    <img src="images/images4.jpg">
+                </div>
+                <div>
+                    <img src="images/images5.jpg">
+                </div>
+            </div>
+    </div>
+    <script>
+    var oDDiv=document.getElementById("div1");
+    var oUl=document.getElementById("ul1");
+    var aLi=oUl.getElementsByTagName("li");
+    var oDiv1=document.getElementById("div2");
+    var oDiv2=oDiv1.getElementsByTagName("div");
+    var oNext=document.getElementById("next");
+    var oPrev=document.getElementById("prev");
+    var num=0;
+    
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].index=i;
+        aLi[i].onclick=function(){
+            change(this.index);
+            num=this.index;
+        } 
+    }
+    oNext.onclick=function(){
+            num++;
+            if(num == aLi.length){
+                num = 0;
+            }
+            change(num);
+    }
+    oPrev.onclick=function(){
+        num--;
+        if(num == -1){
+            num = aLi.length - 1;
+        }
+        change(num);
+    }
+    
+    function change(num){
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].className=""; 
+            oDiv2[i].className="";
+            }
+        aLi[num].className="li1";
+        oDiv2[num].className="div3";
+    }
+    var timer=setInterval(oNext.onclick,1000);
+    oDDiv.onmouseout = function(){
+        timer = setInterval(oNext.onclick,1000);
+    }
+    oDDiv.onmouseover = function(){
+        clearTimeout(timer);
+    }
+
+    </script>
+    
+</body>
+</html>
