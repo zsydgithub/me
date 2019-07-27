@@ -49,14 +49,17 @@
    </ul>
     <script>
         var oH2 = document.getElementsByTagName("h2");
+        
         for(var i=0;i<oH2.length;i++){
+            oH2[i].flag=true;
             oH2[i].onclick = function(){
                 var aH2 = next(this);
-                if(aH2.style.display == "none" || aH2.style.display==""){
-                    aH2.style.display = "block";
-                }else{
-                    aH2.style.display = "none";
-                }
+               if(this.flag){
+                aH2.style.display = "block";
+               }else{
+                aH2.style.display = "none";
+               }
+               this.flag = !this.flag;
             }
 
         }
