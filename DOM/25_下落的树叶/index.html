@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        img{
+         position: absolute;
+        }
+    </style>
+</head>
+<body>
+    
+    <script>
+        var screenWidth = document.documentElement.clientWidth || document.body.clientWidth
+        var screenHeight = document.documentElement.clientHeight || document.body.clientHeight;
+        // 叶子类
+        function Leaf(){
+            this.width = RandomNumBoth(100,150) + "px";
+            this.pos = {
+                left:RandomNumBoth(0,screenWidth),
+                top:0
+            }
+            this.speed = 5;
+            var oImg = new Image();
+            oImg.src = "img/"+RandomNumBoth(1,4)+".png";
+            oImg.style.width = this.width + "px";
+            oImg.style.left = this.pos.left +"px";
+            oImg.style.top = this.pos.top +"px";
+            this.img = oImg;
+        }
+        Leaf.prototype.init = function(){ //插入到页面中 
+            document.body.appendChild(this.img);
+        }
+        Leaf.prototype.fall = function(){
+            var that = this;
+            setTimeout(function(){
+                this.timer = setInterval(function(){
+                if(that.img.offsetTop>=screenHeight-that.img.offsetHeight){
+                    clearInterval(that.timer);
+                }else{
+                    that.img.style.top = that.img.offsetTop + that.speed + "px";
+                }
+            },25)    
+            },RandomNumBoth(0,1000))
+               
+        }
+        var arr=[];
+        for(var j=0;j<5;j++){
+            var leaf = new Leaf();
+            arr.push(leaf);
+            leaf.init();
+        }
+        
+        document.onclick=function(){
+           for(var a=0;a<arr.length;a++){
+               arr[a].fall();
+           }
+        }
+     
+        function RandomNumBoth(Min,Max){
+            var Range = Max - Min;
+            var Rand = Math.random();
+            var num = Min+Math.round(Rand * Range);
+            return num;
+        }
+    
+    
+    
+    </script>
+</body>
+</html>
