@@ -1,0 +1,17 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.head{
+    background: #06c1ae;
+    height:1.01rem;
+    color: #fff;
+}
+#head-1{
+    font-size: 0.32rem;
+    height: 1.01rem;
+    width: 1.35rem;
+    text-align: center;
+    line-height: 1.01rem;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
