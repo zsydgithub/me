@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .red{
+        color:red;
+    }
+    
+    
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="text" value="" v-model="name" @keyup="filterFn()">
+        <button @click="add()">add</button>
+        <ul>
+            <li v-for="(obj,index) in list" @click="change(obj)" :class="{red:obj.isRed}" v-show="obj.isShow">
+                {{obj.name}}<button @click.stop="del(index)">del</button></li>
+        </ul>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+    new Vue({
+        el:'#app',
+        data:{
+            name:"",
+            list:[{
+                name:'aaaaaa',
+                isRed:false,
+                isShow:true
+            },{
+                name:'bbbbbb',
+                isRed:false,
+                isShow:true
+            }],
+        },
+        methods:{
+            add(){
+                this.list.push({name:this.name,isRed:false,isShow:true});
+                this.name="" ;
+                this.filterFn();
+                   
+            },
+            change(obj){
+                obj.isRed = !obj.isRed
+            },
+            del(index){
+                this.list.splice(index,1)
+            } ,
+            filterFn(){
+                let value = this.name;
+                this.list.forEach(function(obj,index){
+                   if (obj.name.includes(value)){
+                    obj.isShow = true;
+                   }else{
+                    obj.isShow = false;
+                   }
+                })
+            }    
+        }
+    })
+    
+    
+    </script>
+</body>
+</html>
