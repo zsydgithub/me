@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width: 400px;
+            margin:50px auto;
+        }
+        ul{
+            list-style: none;
+        }
+        li{
+            height: 50px;
+            line-height: 50px;
+            background: #cccccc;
+            padding: 0 10px;
+            margin-bottom:10px;
+        }
+        .price,.close{
+            float:right;
+        }
+        .close{
+            margin-left:10px;
+            color: red;
+        }
+        .selected{
+            background:pink;
+        }
+    
+    </style>
+</head>
+<body>
+        <div id="container">
+                <h1>todolist</h1>
+                <hr>
+                <div>
+                    <label for="proName">名称</label>
+                    <input type="text" id="proName" placeholder="请输入产品名" v-model="name">
+                    <label for="proPrice">价格</label>
+                    <input type="text" id="proPrice" placeholder="请输入产品价格" v-model="price">
+                    <button class="add" @click="add()">添加</button>
+                </div>
+                <div>
+                    <input type="text" class="search-val" v-model="searchVal" placeholder="请输入搜索内容">
+                    <button class="search" @click="search()">搜索</button>
+                </div>
+                <ul>
+                    <li v-for="(product,index) in proList" @click= "change(product,index)" :class="{selected:product.isSelect}" v-show="product.isShow">
+                        <input type="checkbox" v-model="checke" :value="index">
+                        <span>{{product.name}}</span>
+                        <span class="close">[X]</span>
+                        <span class="price">{{product.price}}</span>
+                    </li>
+                </ul>
+                <div>
+                    <button class="del" @click="del()">删除选中</button>
+                    总价
+                    <span class="total_price"></span>
+                </div>
+            </div>
+    <script src="vue.js"></script>
+    <script>
+        let vm = new Vue({
+            el:'#container',
+            data:{
+                proList:[{
+                name:'裤子',
+                price:11,
+                isSelect:false,
+                isShow:true,
+                },{
+                name:'衣服',
+                price:22,
+                isSelect:false,
+                isShow:true,
+                },{
+                name:'电脑',
+                price:3333,
+                isSelect:false,
+                isShow:true,
+                },{
+                name:'iphoneX',
+                price:6666,
+                isSelect:false,
+                isShow:true,  
+                }],
+                name:"",
+                price:'',
+                checke:[],
+                searchVal:''
+
+
+
+                
+            },
+            methods:{
+
+            }
+
+
+
+
+        })
+            
+            
+            
+            
+            
+    </script>
+
+
+
+
+</body>
+</html>

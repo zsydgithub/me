@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            是否需要额外付费设施
+            <input type="checkbox" v-model="isShow" @click="fn()">
+            <li v-for="product in proList" v-show="isShow" >
+                <span>{{product.Name}}({{product.Price}})</span>
+                <input type="checkbox" :value="product"   v-model="objList">
+            </li>
+        </ul>
+        <ul>
+            订单费用信息
+            <li v-for="obj in objList" >
+                <span>{{obj.Name}}({{obj.Price}})</span>
+                
+            </li>
+        </ul>
+        <span>总金额:{{total()}}</span>
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data:{
+                proList:[
+                    {
+                        Name:"沙发",
+                        Price:100                        
+                    },
+                    {
+                        Name:"wifi",
+                        Price:50                      
+                    },
+                    {
+                        Name:"电脑",
+                        Price:200                     
+                    }
+                ],
+                isShow:false,
+                // facility:[],
+                objList:[
+                    {
+                        Name:"群力花园豪华型",
+                        Price:400
+                    }
+                ]
+            },
+            methods:{
+                total(){
+                    let num = 0 ;
+                    this.objList.forEach(function(obj){
+                        num += obj.Price;
+                    })
+                    return num;
+                },
+                fn(){
+                    this.objList.splice(1)
+                }
+
+            }
+
+
+        })
+
+
+
+    </script>
+</body>
+
+</html>
