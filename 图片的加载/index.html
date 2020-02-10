@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #container{
+            text-align: center;
+        }
+        #kobe{
+            width:600px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <img  id="kobe"src="http://pic.qingmengtech.com:8080/qingmeng/xiaowu_1.jpg" alt=""> 
+        <p>
+            <button id="prev">上一页</button>
+            <button id="next">下一页</button>
+        </p>
+    </div>
+    <script>
+        let imgs=[
+            "http://pic.qingmengtech.com:8080/qingmeng/xiaowu_1.jpg",
+            "http://pic.qingmengtech.com:8080/qingmeng/xiaowu_2.jpg",
+            "http://pic.qingmengtech.com:8080/qingmeng/xiaowu_3.jpg",
+            "http://pic.qingmengtech.com:8080/qingmeng/xiaowu_4.jpg",
+            "http://pic.qingmengtech.com:8080/qingmeng/xiaowu_5.jpg",
+            "http://pic.qingmengtech.com:8080/qingmeng/xiaowu_6.jpg",
+
+        ]   
+        let next=document.getElementById("next");
+        let prev=document.getElementById("prev");
+        let kobe=document.getElementById("kobe");
+        let index=0;
+        len= imgs.length;
+        next.onclick = function(){
+           index = Math.min(len - 1,++index);
+           kobe.src = imgs[index];
+        }
+
+        
+
+    </script>
+
+</body>
+</html>

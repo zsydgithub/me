@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">12312312</div>
+    <ul>
+        <li>111</li>
+        <li class="iii">222</li>
+        <li class="iii">333</li>
+    </ul>
+    <script>
+        var oDiv = document.getElementById('div1');
+        oDiv.style.background = "green";
+        var aLi = document.getElementsByTagName('li');
+        // for(var i=0;i<aLi.length;i++){
+        //     aLi[i].style.background = "red";
+        // }
+        var oLi = document.getElementsByClassName('iii');
+        for(var i=0; i<oLi.length; i++){
+            oLi[i].style.background = "black";
+        }
+    </script>
+</body>
+</html>

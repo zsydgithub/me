@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #container{
+            
+            width: 750px;
+            margin:100px auto;
+            position: relative;
+            overflow: hidden;
+            height: 291px;
+        }
+        
+        #img-box{
+            
+            
+            position: absolute;
+            left:0px;
+            top:0px;
+        }
+        #img-box a{
+            display: none;
+        }
+        #img-box .selected{
+            display: block;
+        }
+        #btn-box{
+            right: 10px;
+            bottom: 10px;
+            position: absolute;
+        }
+        #arrow-box{
+            left: 10px;
+            bottom: 10px;
+            position: absolute;
+        }
+        #btn-box li,#arrow-box li{
+            float: left;
+            width: 20px;
+            height: 20px;
+            background: rgba(0,0,0,0.5);
+            color:#fff;
+            margin-right:5px;
+            text-align: center;
+            line-height: 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        #btn-box .btn-col{
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="img-box">
+            <a href="#" class="selected">
+                <img src="img copy/1.jpg">
+            </a>
+            <a href="#">
+                <img src="img copy/2.jpg">
+            </a>
+            <a href="#">
+                <img src="img copy/3.jpg">
+            </a>
+            <a href="#">
+                <img src="img copy/4.jpg">
+            </a>
+            <a href="#">
+                <img src="img copy/5.jpg">
+            </a>
+        </div>
+        <ul id="btn-box">
+            <li class="btn-col">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <ul id="arrow-box">
+            <li id="prev">&lt;</li>
+            <li id="next">&gt;</li>
+        </ul>
+    </div>
+    <script>
+        var oContainer = document.getElementById('container');
+        var oBtn = document.getElementById('btn-box');
+        var aBtn = oBtn.getElementsByTagName('li');
+        var oImg = document.getElementById('img-box');
+        var aImg = oImg.getElementsByTagName('a');
+        var oNext = document.getElementById('next');
+        var oPrev = document.getElementById('prev');
+        iNow = 0;
+        for(var i=0;i<aBtn.length;i++){
+            aBtn[i].idx =i;
+            aBtn[i].onclick=function(){
+                for(var j=0;j<aBtn.length;j++){
+                    aBtn[j].className = "";
+                    aImg[j].className = "";
+                }
+                this.className = "btn-col";
+                aImg[this.idx].className = "selected";
+                iNow = this.idx;
+            }
+        }
+        oNext.onclick = function(){
+            iNow++;
+            if(iNow == aBtn.length){
+                iNow = 0;
+            }
+                for(var i=0;i<aBtn.length;i++){                   
+                    aBtn[i].className = "";
+                    aImg[i].className = "";                                 
+                }
+                aBtn[iNow].className = "btn-col";
+                aImg[iNow].className = "selected";
+        }
+        oPrev.onclick = function(){
+            iNow--;
+            if(iNow == -1){
+                iNow = aBtn.length-1;
+            }
+            for(var i=0;i<aBtn.length;i++){                   
+                    aBtn[i].className = "";
+                    aImg[i].className = "";                                 
+                }
+                aBtn[iNow].className = "btn-col";
+                aImg[iNow].className = "selected";
+        }
+         var timer = setInterval(oNext.onclick,1000);
+        oContainer.onmouseover = function(){
+            clearInterval(timer)
+        }
+        oContainer.onmouseout = function(){
+            timer = setInterval(oNext.onclick,1000);
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        ul{
+            list-style: none;
+        }
+        #head{
+            overflow: hidden;
+        }
+        #head li{
+            height: 50px;
+            width: 100px;
+            border: 1px solid black;
+            float: left;
+            text-align: center;
+            line-height: 50px;
+            
+        }
+        #head .li1{
+            background: pink;
+        }
+        #foot{
+            height: 200px;
+            width: 500px;
+            border: 1px solid black;
+        }
+        #foot div{
+            display: none;
+        }
+        #foot .div1{
+            display: block;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <ul id="head">
+        <li class="li1">时事</li>
+        <li>体育</li>
+        <li>娱乐</li>
+    </ul>
+    <div id="foot">
+        <div class="div1">时事</div>
+        <div>体育</div>
+        <div>娱乐</div>
+    </div>
+   <script>
+       var oLi =document.getElementById('head');
+       var aLi =oLi.getElementsByTagName('li');
+       var oDiv = document.getElementById('foot');
+       var aDiv = oDiv.getElementsByTagName('div');
+       for(var i=0;i<aLi.length;i++){
+           aLi[i].index = i;
+           aLi[i].onclick = function () {
+               for(var j=0;j<aLi.length;j++){
+                aLi[j].className = "";
+                aDiv[j].className="";
+               }
+               this.className = "li1";
+               aDiv[this.index].className = "div1";
+           }
+       }
+       
+   </script>
+
+
+
+</body>
+</html>
